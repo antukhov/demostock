@@ -10,6 +10,6 @@ public class Main {
     public static void main(String[] args) {
         new Thread(new InputScanner()).start();
         Timer matchTaskExplorerTimer = new Timer();
-        matchTaskExplorerTimer.schedule(new MatchTaskScanner(matchTaskExplorerTimer), 0, 5000);
+        matchTaskExplorerTimer.schedule(new MatchTaskScanner(matchTaskExplorerTimer), 0, 1000);
     }
 }

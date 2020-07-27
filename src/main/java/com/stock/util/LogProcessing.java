@@ -3,7 +3,6 @@ package com.stock.util;
 import com.stock.model.Order;
 import com.stock.model.OrderBook;
 import com.stock.model.Trade;
-import com.sun.xml.internal.ws.util.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,10 +10,12 @@ import java.util.Date;
 public class LogProcessing {
 
     public static void printAppendOrder(String symbol, Order order) {
+        String capitalizedSymbol = order.getOrderType().name().substring(0, 1).toUpperCase()
+            + order.getOrderType().name().substring(1).toLowerCase();
         System.out.println(
             "[" + LogProcessing.getFormattedDateTime(order.getCreatedAt()) + "] " +
             "Order with ID " + order.getOrderId() + " added: " +
-            symbol + " " + StringUtils.capitalize(order.getOrderType().name().toLowerCase()) + " " +
+            symbol + " " + capitalizedSymbol + " " +
             order.getQuantity() + " @ " + order.getPrice()
         );
     }

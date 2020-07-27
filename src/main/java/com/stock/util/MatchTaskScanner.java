@@ -28,7 +28,7 @@ public class MatchTaskScanner extends TimerTask {
             Thread.currentThread().interrupt();
         }
 
-        orderBooks.forEach(orderBook -> {
+        orderBooks.stream().sorted(Comparator.comparing(OrderBook::getSymbol)).forEach(orderBook -> {
             if(orderBook.getOrders().size() > 1) {
                 Optional<Trade> trade;
                 do {
